@@ -8,14 +8,14 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int splitstatus        = 1;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
-static const char *fonts[]          = { "FiraCode Nerd Font:size=13" };
-static const char dmenufont[]       = "FiraCode Nerd Font:size=13";
+static const char *fonts[]          = { "FiraCode Nerd Font:size=15" };
+static const char dmenufont[]       = "FiraCode Nerd Font:size=15";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#1aebd9";
-static const char col_bar[]        = "#404040";
+static const char col_bar[]         = "#748c89";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -29,7 +29,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "󰈹", "", "", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
