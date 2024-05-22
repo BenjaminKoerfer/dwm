@@ -15,7 +15,7 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#1aebd9";
-static const char col_bar[]         = "#748c89";
+static const char col_bar[]         = "#2f616b";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -29,7 +29,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = { "", "󰈹", "", "", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "󰖟", "", "", "", "", "󰈫", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -70,14 +70,16 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_bar, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *browsercmd[]  = { "firefox", NULL };
+static const char *browsercmd[]  = { "tabbed", "-r 2", "surf", "-e", "ID", "duckduckgo.com", NULL };
+static const char *firefoxcmd[]  = { "firefox", NULL };
 
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,					    XK_x,	   spawn,          {.v = termcmd } },
-	{ MODKEY,					    XK_b,	   spawn,          {.v = browsercmd } },
+	{ MODKEY,	       	        XK_x,	   spawn,          {.v = termcmd } },
+	{ MODKEY,		        XK_b,	   spawn,          {.v = browsercmd } },
+	{ MODKEY|ControlMask,	        XK_b,	   spawn,          {.v = firefoxcmd } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
