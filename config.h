@@ -29,7 +29,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = { "", "󰖟", "", "", "", "", "󰈫", "", "", "10"};
+static const char *tags[] = { "", "󰖟", "", "", "", "", "󰈫", "", "", "10", "11"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -45,7 +45,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int attachbelow = 1;    /* 1 means attach after the currently active window */
+static const int attachbelow = 0;    /* 1 means attach after the currently active window */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -72,6 +72,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont,  NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "tabbed", "-r 2", "surf", "-e", "ID", "duckduckgo.com", NULL };
 static const char *firefoxcmd[]  = { "firefox", NULL };
+static const char *filebrowsercmd[]  = { "nemo", NULL };
 
 
 static const Key keys[] = {
@@ -79,6 +80,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenu_run -l 30 -fn 'FiraCode Nerd Font:size=20'") },
 	{ MODKEY,	       	        XK_x,	   spawn,          {.v = termcmd } },
 	{ MODKEY,		        XK_b,	   spawn,          {.v = browsercmd } },
+	{ MODKEY,		        XK_n,	   spawn,          {.v = filebrowsercmd } },
 	{ MODKEY|ShiftMask,	        XK_i,	   spawn,          SHCMD("~/work/scripts/bookmarks.sh")},
 	{ MODKEY,		        XK_w,	   spawn,          SHCMD("~/.config/xinit/wallpaper")},
 	{ MODKEY,		        XK_a,	   spawn,          SHCMD("~/work/scripts/dmenulaunchscripts.sh")},
@@ -86,7 +88,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,             XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,			XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -114,6 +116,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	TAGKEYS(                        XK_minus,                  9)
+	TAGKEYS(                        XK_plus,                  10)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
