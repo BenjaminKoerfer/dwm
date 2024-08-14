@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_bar,  col_cyan  },
-	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeStatus]  = { col_gray4, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
 	[SchemeInfoSel]  = { col_gray4, col_bar,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
@@ -32,7 +32,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = { "", "󰖟", "", "", "", "", "󰈫", "", "", "10", "11"};
+static const char *tags[] = { "", "", "", "", "󰖟", "", "󰈫", "", "", "10", "11"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -86,7 +86,8 @@ static const char *filebrowsercmd[]  = { "nemo", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenu_run -l 30 -fn 'FiraCode Nerd Font:size=20'") },
-	{ MODKEY,	       	        XK_x,	   spawn,          {.v = termcmd } },
+	{ MODKEY,	       	        XK_x,	   spawn,          SHCMD("st -e ~/work/scripts/tmuxsession") },
+	{ MODKEY|ShiftMask,    	        XK_x,	   spawn,          {.v = termcmd } },
 	{ MODKEY,		        XK_b,	   spawn,          {.v = browsercmd } },
 	{ MODKEY,		        XK_n,	   spawn,          {.v = filebrowsercmd } },
 	{ MODKEY|ShiftMask,	        XK_i,	   spawn,          SHCMD("~/work/scripts/bookmarks.sh")},
