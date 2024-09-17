@@ -14,7 +14,7 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#e80000";
 static const char col_bar[]         = "#6e31a3";
-static const unsigned int baralpha = 0xd0;
+static const unsigned int baralpha = 0xcc;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -37,7 +37,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeInfoNorm]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = { "", "", "", "", "󰖟", "", "󰈫", "", "", "10", "11"};
+static const char *tags[] = { "", "", "", "", "󰖟", "", "󰈫", "", "", "", "11"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -90,6 +90,7 @@ static const char *filebrowsercmd[]  = { "nemo", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("flameshot gui") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenu_run -l 30 -fn 'FiraCode Nerd Font:size=20'") },
 	{ MODKEY,	       	        XK_x,	   spawn,          SHCMD("st -e ~/work/scripts/tmuxsession") },
 	{ MODKEY|ShiftMask,    	        XK_x,	   spawn,          {.v = termcmd } },
