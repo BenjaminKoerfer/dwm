@@ -45,7 +45,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
+	{ "floatTerm",NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -91,6 +92,7 @@ static const char *filebrowsercmd[]  = { "nemo", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("flameshot gui") },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("~/work/scripts/float.sh") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenu_run -l 30 -fn 'FiraCode Nerd Font:size=20'") },
 	{ MODKEY,	       	        XK_x,	   spawn,          SHCMD("st -e ~/work/scripts/tmuxsession") },
 	{ MODKEY|ShiftMask,    	        XK_x,	   spawn,          {.v = termcmd } },
