@@ -37,7 +37,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeInfoNorm]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = { "", "", "", "", "󰖟", "", "󰈫", "", "", "", "11"};
+static const char *tags[] = { "", "", "", "", "󰖟", "", "󰏆", "", "", "", "11"};
 
 static const Rule rules[] = {
 	/* xprop(1):
