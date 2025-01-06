@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+#include <X11/X.h>
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -37,7 +38,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeInfoNorm]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = { "", "", "", "", "󰖟", "", "󰏆", "", "", "", "11"};
+static const char *tags[] = { "", "", "", "", "󰖟", "", "󰏆", "", "\ue7b5", "", "11"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -97,12 +98,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenu_run -l 30 -fn 'FiraCode Nerd Font:size=20'") },
 	{ MODKEY,	       	        XK_x,	   spawn,          SHCMD("st -e ~/work/scripts/tmuxsession") },
 	{ MODKEY|ShiftMask,    	        XK_x,	   spawn,          {.v = termcmd } },
-	{ MODKEY,		        XK_b,	   spawn,          {.v = browsercmd } },
+	{ MODKEY|ControlMask,	        XK_b,	   spawn,          {.v = browsercmd } },
 	{ MODKEY,		        XK_n,	   spawn,          {.v = filebrowsercmd } },
 	{ MODKEY|ShiftMask,	        XK_i,	   spawn,          SHCMD("~/work/scripts/bookmarks.sh")},
 	{ MODKEY,		        XK_w,	   spawn,          SHCMD("~/.config/xinit/wallpaper")},
 	{ MODKEY,		        XK_a,	   spawn,          SHCMD("~/work/scripts/dmenulaunchscripts.sh")},
-	{ MODKEY|ControlMask,	        XK_b,	   spawn,          {.v = firefoxcmd } },
+	{ MODKEY|ShiftMask,	        XK_a,	   spawn,          SHCMD("~/work/scripts/addbookmark.sh")},
+	{ MODKEY,		        XK_b,	   spawn,          {.v = firefoxcmd } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
