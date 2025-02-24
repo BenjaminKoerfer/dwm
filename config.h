@@ -85,26 +85,26 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont,  NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *browsercmd[]  = { "tabbed", "-r 2", "surf", "-e", "ID", "duckduckgo.com", NULL };
+static const char *browsercmd[]  = { "qutebrowser" };
 static const char *firefoxcmd[]  = { "firefox", NULL };
 static const char *filebrowsercmd[]  = { "nemo", NULL };
 
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacsclient -c -a 'emacs'") },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("emacsclient -c") },
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("flameshot gui") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("~/work/scripts/float.sh") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenu_run -l 30 -fn 'FiraCode Nerd Font:size=20'") },
 	{ MODKEY,	       	        XK_x,	   spawn,          SHCMD("st -e ~/work/scripts/tmuxsession") },
 	{ MODKEY|ShiftMask,    	        XK_x,	   spawn,          {.v = termcmd } },
-	{ MODKEY|ControlMask,	        XK_b,	   spawn,          {.v = browsercmd } },
+	{ MODKEY,		        XK_b,	   spawn,          {.v = browsercmd } },
 	{ MODKEY,		        XK_n,	   spawn,          {.v = filebrowsercmd } },
 	{ MODKEY|ShiftMask,	        XK_i,	   spawn,          SHCMD("~/work/scripts/bookmarks.sh")},
 	{ MODKEY,		        XK_w,	   spawn,          SHCMD("~/.config/xinit/wallpaper")},
 	{ MODKEY,		        XK_a,	   spawn,          SHCMD("~/work/scripts/dmenulaunchscripts.sh")},
 	{ MODKEY|ShiftMask,	        XK_a,	   spawn,          SHCMD("~/work/scripts/addbookmark.sh")},
-	{ MODKEY,		        XK_b,	   spawn,          {.v = firefoxcmd } },
+	{ MODKEY|ControlMask,	        XK_b,	   spawn,          {.v = firefoxcmd } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
